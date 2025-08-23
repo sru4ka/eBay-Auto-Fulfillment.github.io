@@ -92,8 +92,8 @@
 
     /* Tiny utility */
     .pill{ display:inline-block; padding:.25rem .55rem; border-radius:999px; background:rgba(97,218,251,.12); color:var(--accent-2); font-weight:600; font-size:.78rem }
-      .shot-wrap{ position:relative; width:100%; aspect-ratio: 16 / 9; border-radius:12px; overflow:hidden; background: linear-gradient(160deg, #15243a, #0f1a2b); border:1px solid var(--border); }
-      .shot-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+      .shot-wrap{ position:relative; width:100%; height: clamp(240px, 28vw, 360px); border-radius:12px; overflow:hidden; background: linear-gradient(160deg, #15243a, #0f1a2b); border:1px solid var(--border); }
+      .shot-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; }
   </style>
 </head>
 <body>
@@ -125,20 +125,10 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section" id="get-started">
-      <h2>How it works</h2>
-      <div class="grid">
-        <div class="card step"><div class="num">1</div><div><h3>Install the app</h3><p>Grant the needed scopes (Products, Orders, Customers) and open the app from Shopify Admin.</p></div></div>
-        <div class="card step"><div class="num">2</div><div><h3>Map your variants</h3><p>Open <em>Variant → eBay Mapping</em>, paste eBay URLs for each variant once. We remember them.</p></div></div>
-        <div class="card step"><div class="num">3</div><div><h3>Process orders</h3><p>Go to <em>Today’s Orders</em>. The app auto-saves the eBay order confirmation number to the Shopify order note - no manual copy/paste.</p></div></div>
-      </div>
-    </section>
-
-    <!-- "SCREENSHOTS" PLACEHOLDER; replace src with real screenshots when ready -->
+    <!-- PREVIEW / SCREENSHOTS -->
     <section class="section" id="screens">
       <h2>Take a quick look</h2>
-      <p class="lead">Here are two screens from the app. Save them into your repo as <code>mapping.png</code> and <code>orders.png</code> to display.</p>
+      <p class="lead">Here are two screens from the app. Save them into your repo as <code>mapping.png</code> and <code>orders1.png</code> to display.</p>
       <div class="grid">
         <div class="card">
           <h3 style="margin-bottom:12px">Variant → eBay Mapping</h3>
@@ -149,11 +139,23 @@
         <div class="card">
           <h3 style="margin-bottom:12px">Today’s Orders</h3>
           <div class="shot-wrap">
-            <img class="shot-img" src="./orders.png?v=2" alt="Today's Orders screen" loading="lazy" />
+            <img class="shot-img" src="./orders1.png?v=2" alt="Today's Orders screen" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="get-started">
+      <h2>How it works</h2>
+      <div class="grid">
+        <div class="card step"><div class="num">1</div><div><h3>Install the app</h3><p>Grant the needed scopes (Products, Orders, Customers) and open the app from Shopify Admin.</p></div></div>
+        <div class="card step"><div class="num">2</div><div><h3>Map your variants</h3><p>Open <em>Variant → eBay Mapping</em>, paste eBay URLs for each variant once. We remember them.</p></div></div>
+        <div class="card step"><div class="num">3</div><div><h3>Process orders</h3><p>Go to <em>Today’s Orders</em>. The app auto-saves the eBay order confirmation number to the Shopify order note - no manual copy/paste.</p></div></div>
+      </div>
+    </section>
+
+    
 
     <!-- FAQ -->
     <section class="section" id="faq">
