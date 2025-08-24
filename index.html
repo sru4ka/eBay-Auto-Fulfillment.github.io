@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>eBay Auto Fulfillment - Shopify + eBay made simple</title>
-  <meta name="description" content="Landing page for the eBay Auto Fulfillment Shopify app: map variants to eBay, review daily orders, and save eBay PO/confirmation numbers back to Shopify." />
+  <meta name="description" content="Landing page for the eBay Auto Fulfillment Shopify app: map variants to eBay, review daily orders, and automatically save eBay confirmation numbers back to Shopify." />
   <!-- Preload screenshots for snappier paint -->
   <link rel="preload" as="image" href="./mapping.png?v=2">
   <link rel="preload" as="image" href="./orders1.png?v=2">
@@ -32,7 +32,7 @@
         var(--bg);
       display:flex;align-items:flex-start;justify-content:center;
     }
-    .container{width:min(1100px, 92vw); margin: 48px auto 96px;}
+    .container{width:min(1100px, 92vw); margin: 48px auto 96px}
 
     /* Header */
     .hero{
@@ -78,7 +78,8 @@
     .num{ flex:0 0 34px; height:34px; border-radius:999px; background:rgba(97,218,251,.15); border:1px solid var(--border); display:grid; place-items:center; font-weight:800; color:var(--accent-2) }
 
     /* Screenshots */
-    .shot{ aspect-ratio: 16/9; background: linear-gradient(160deg, #15243a, #0f1a2b); border:1px dashed #2b3b59; border-radius: var(--radius); display:grid; place-items:center; color:#9fb2cf }
+    .shot-wrap{ position:relative; width:100%; height: clamp(240px, 28vw, 360px); border-radius:12px; overflow:hidden; background: linear-gradient(160deg, #15243a, #0f1a2b); border:1px solid var(--border); }
+    .shot-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block }
 
     /* FAQ */
     details{ background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 12px 16px }
@@ -92,8 +93,6 @@
 
     /* Tiny utility */
     .pill{ display:inline-block; padding:.25rem .55rem; border-radius:999px; background:rgba(97,218,251,.12); color:var(--accent-2); font-weight:600; font-size:.78rem }
-      .shot-wrap{ position:relative; width:100%; height: clamp(240px, 28vw, 360px); border-radius:12px; overflow:hidden; background: linear-gradient(160deg, #15243a, #0f1a2b); border:1px solid var(--border); }
-      .shot-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; }
   </style>
 </head>
 <body>
@@ -102,7 +101,7 @@
     <section class="hero">
       <div class="eyebrow">Shopify App</div>
       <h1>eBay Auto Fulfillment</h1>
-      <p class="sub">Connect your Shopify workflow with eBay in minutes. Map product variants to eBay listings, review today's orders, and automatically saves the eBay order confirmation number straight into the Shopify order note.</p>
+      <p class="sub">Connect your Shopify workflow with eBay in minutes. Map product variants to eBay listings, review today's orders, and automatically save the eBay order confirmation number straight into the Shopify order note.</p>
       <div class="actions">
         <a class="btn" href="#get-started">Get started</a>
         <a class="btn secondary" href="mailto:ebayautofulfillment@gmail.com">Contact support</a>
@@ -111,21 +110,7 @@
       </div>
     </section>
 
-    <!-- VALUE PROPS / FEATURES -->
-    <section class="section" id="features">
-      <h2>Why merchants use eBay Auto Fulfillment</h2>
-      <p class="lead">A clean, focused tool - no bloat. Everything you need to process Shopify orders using eBay suppliers quickly and with fewer clicks.</p>
-      <div class="grid" style="margin-top:16px">
-        <article class="card"><h3>Variant → eBay mapping</h3><p>Paste an eBay URL once per variant. We remember it for next time.</p></article>
-        <article class="card"><h3>Today’s orders view</h3><p>See all orders created today, with line items and mapping status at a glance.</p></article>
-        <article class="card"><h3>One-click open</h3><p>Jump directly to each mapped eBay listing from any order line.</p></article>
-        <article class="card"><h3>eBay order confirmation saved on Shopify order</h3><p>After purchase on eBay, the app automatically saves the eBay order confirmation number on the Shopify order.</p></article>
-        <article class="card"><h3>Bulk-ready flow</h3><p>Select items, see the total before paying, then process together (designed for scale).</p></article>
-        <article class="card"><h3>Minimal data</h3><p>We only store mappings and logs - your store data stays in Shopify.</p></article>
-      </div>
-    </section>
-
-    <!-- PREVIEW / SCREENSHOTS -->
+    <!-- PREVIEW / SCREENSHOTS ABOVE HOW IT WORKS -->
     <section class="section" id="screens">
       <h2>Take a quick look</h2>
       <p class="lead">Here are two screens from the app. Save them into your repo as <code>mapping.png</code> and <code>orders1.png</code> to display.</p>
@@ -137,7 +122,7 @@
           </div>
         </div>
         <div class="card">
-          <h3 style="margin-bottom:12px">Today’s Orders</h3>
+          <h3 style="margin-bottom:12px">Today's Orders</h3>
           <div class="shot-wrap">
             <img class="shot-img" src="./orders1.png?v=2" alt="Today's Orders screen" loading="lazy" />
           </div>
@@ -145,17 +130,29 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- VALUE PROPS / FEATURES -->
+    <section class="section" id="features">
+      <h2>Why merchants use eBay Auto Fulfillment</h2>
+      <p class="lead">A clean, focused tool - no bloat. Everything you need to process Shopify orders using eBay suppliers quickly and with fewer clicks.</p>
+      <div class="grid" style="margin-top:16px">
+        <article class="card"><h3>Variant → eBay mapping</h3><p>Paste an eBay URL once per variant. We remember it for next time.</p></article>
+        <article class="card"><h3>Today's orders view</h3><p>See all orders created today, with line items and mapping status at a glance.</p></article>
+        <article class="card"><h3>One-click open</h3><p>Jump directly to each mapped eBay listing from any order line.</p></article>
+        <article class="card"><h3>eBay order confirmation saved on Shopify order</h3><p>After purchase on eBay, the app automatically saves the eBay order confirmation number on the Shopify order.</p></article>
+        <article class="card"><h3>Bulk-ready flow</h3><p>Select items, see the total before paying, then process together (designed for scale).</p></article>
+        <article class="card"><h3>Minimal data</h3><p>We only store mappings and logs - your store data stays in Shopify.</p></article>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (3 steps) -->
     <section class="section" id="get-started">
       <h2>How it works</h2>
       <div class="grid">
         <div class="card step"><div class="num">1</div><div><h3>Install the app</h3><p>Grant the needed scopes (Products, Orders, Customers) and open the app from Shopify Admin.</p></div></div>
         <div class="card step"><div class="num">2</div><div><h3>Map your variants</h3><p>Open <em>Variant → eBay Mapping</em>, paste eBay URLs for each variant once. We remember them.</p></div></div>
-        <div class="card step"><div class="num">3</div><div><h3>Process orders</h3><p>Go to <em>Today’s Orders</em>. The app auto-saves the eBay order confirmation number to the Shopify order note - no manual copy/paste.</p></div></div>
+        <div class="card step"><div class="num">3</div><div><h3>Process orders</h3><p>Go to <em>Today's Orders</em>. The app auto-saves the eBay order confirmation number to the Shopify order note - no manual copy or paste.</p></div></div>
       </div>
     </section>
-
-    
 
     <!-- FAQ -->
     <section class="section" id="faq">
@@ -166,7 +163,7 @@
       </details>
       <details>
         <summary>Do we keep sensitive data?</summary>
-        <p>We store minimal configuration (variant ↔ eBay link) and purchase logs. Store-identifying data is deleted within 30 days of uninstall.</p>
+        <p>No. We don't persist customer PII outside Shopify. Our database only stores variant ↔ eBay mappings and purchase logs (Shopify order ID + eBay order ID). No names, emails, addresses, or phone numbers are stored.</p>
       </details>
       <details>
         <summary>How do I get help?</summary>
@@ -174,21 +171,21 @@
       </details>
     </section>
 
-    <!-- LEGAL & SUPPORT (kept at the bottom, per your request) -->
+    <!-- LEGAL & SUPPORT -->
     <section class="section" aria-label="Legal and support">
       <h2>Legal & Support</h2>
       <div class="grid" style="margin-top:16px">
         <article class="card">
           <h3>What data we use <span class="pill">Transparency</span></h3>
-          <p>Orders, Products and Customers to show daily sales, map items to eBay links, and store your eBay PO number in the order note.</p>
+          <p>Orders, Products and Customers to show daily sales, map items to eBay links, and store your eBay order confirmation number on the order.</p>
         </article>
         <article class="card">
           <h3>Retention & Deletion</h3>
-          <p>Minimal config only (variant ↔ eBay link, purchase logs). We delete store-identifying data within 30 days of uninstall.</p>
+          <p>Minimal config only (variant ↔ eBay link, purchase IDs). We delete shop-scoped data within 30 days of uninstall.</p>
         </article>
         <article class="card">
           <h3>Support</h3>
-          <p>Email us at <a href="mailto:ebayautofulfillment@gmail.com">ebayautofulfillment@gmail.com</a>. We honor GDPR requests via Shopify’s webhooks.</p>
+          <p>Email us at <a href="mailto:ebayautofulfillment@gmail.com">ebayautofulfillment@gmail.com</a>. We honor GDPR requests via Shopify's webhooks.</p>
         </article>
       </div>
       <div class="actions" style="margin-top:16px">
